@@ -1,7 +1,8 @@
 Moviez::Application.routes.draw do
+   get '/movies/search' => 'movies#search', as: 'search'
    resources :movies
 
-   get '/movies/search' => 'movies#search', as: 'search_movie'
+
 
 end
 

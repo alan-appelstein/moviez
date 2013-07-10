@@ -1,23 +1,30 @@
-class MoviesController < ActionController::Base
+class MoviesController < ApplicationController
   protect_from_forgery
-end
 
 
-def index
-end
 
-def create
+  def index
+  end
+
+  def create
   end
 
 
-def show
-  @movies = Movie.all
-end
+  def show
+    binding.pry
+    @movies = Movie.all
+  end
 
-def update
-end
+  def update
+  end
 
-#/movies/search
-def search
-  binding.pry
+  #/movies/search
+  def search
+    binding.pry
+    search_results = Imdb::Search.new(param[:movie])
+    binding.pry
+
+  end
+
+
 end
