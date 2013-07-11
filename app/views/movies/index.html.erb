@@ -2,6 +2,10 @@
 
 <form
 action="/movies/search" method="get">
-  enter search argument <input type="string" name="movie" >
+  enter search argument <input type="string" name="movie" autofocus >
   <button>Search</button>
 </form>
+
+
+  <%=render @movies%>
+

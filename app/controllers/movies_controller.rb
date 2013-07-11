@@ -4,6 +4,7 @@ class MoviesController < ApplicationController
 
 
   def index
+    @movies=Movie.all
   end
 
   def create
@@ -11,8 +12,7 @@ class MoviesController < ApplicationController
 
 
   def show
-    binding.pry
-    @movies = Movie.all
+      @movie = Movie.find(params[:id])
   end
 
   def update
@@ -20,10 +20,12 @@ class MoviesController < ApplicationController
 
   #/movies/search
   def search
-    binding.pry
-    search_results = Imdb::Search.new(param[:movie])
-    binding.pry
+    @search_results = Imdb::Search.new(params[:movie]).movies[0..9]
+    #by default redirects to search.html.erb
+  end
 
+  def display1
+    @result = Imdb::Movie.new(params[:id])
   end
 
 
